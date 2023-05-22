@@ -7,6 +7,7 @@ const cors = require('cors');
 
 const usersRouter = require('./routes/users');
 const notesRouter = require('./routes/notes');
+const shareRouter = require('./routes/share');
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.use(
 
 app.use('/users', usersRouter);
 app.use('/notes', notesRouter);
+app.use('/share', shareRouter);
 
 mongoose
   .connect(process.env.MONGODB_URI)

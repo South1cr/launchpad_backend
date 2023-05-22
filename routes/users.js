@@ -40,7 +40,6 @@ router.post("/signup", (req, res, next) => {
       return User.create({ email, password: hashedPassword });
     })
     .then((createdUser) => {
-      console.log(createdUser);
       // Deconstruct the newly created user object to omit the password
       // We should never expose passwords publicly
       if (createdUser) {
@@ -98,7 +97,7 @@ router.post("/login", (req, res, next) => {
         // Create and sign the token
         const authToken = jwt.sign(payload, process.env.SECRET, {
           algorithm: "HS256",
-          expiresIn: "5m",
+          expiresIn: "30s",
         });
 
         // Send the token as the response
