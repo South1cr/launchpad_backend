@@ -5,7 +5,6 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const notesRouter = require('./routes/notes');
 
@@ -26,7 +25,6 @@ app.use(
     })
   );
 
-app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/notes', notesRouter);
 
