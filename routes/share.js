@@ -18,6 +18,7 @@ router.post("/create", isAuthenticated, function (req, res, next) {
       res.status(200).json({ shareCode: share._id });
     })
     .catch((err) => {
+      res.status(500).json({})
       console.log("error in create share", err);
     });
 });
@@ -35,6 +36,7 @@ router.get("/:shareId", function (req, res, next) {
         res.status(200).json(note);
     })
     .catch((err) => {
+        res.status(500).json({})
         console.log('error in fetching share link', err);
     })
   });

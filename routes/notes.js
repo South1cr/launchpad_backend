@@ -10,6 +10,7 @@ router.get("/", isAuthenticated, function (req, res, next) {
       res.status(200).json(notes);
     })
     .catch((err) => {
+      res.status(500).json({})
       console.log("Error in fetching notes", err);
     });
 });
@@ -26,6 +27,7 @@ router.post("/create", isAuthenticated, function (req, res, next) {
       res.status(200).json(note);
     })
     .catch((err) => {
+      res.status(500).json({})
       console.log("Error in create note", err);
     });
 });
@@ -37,7 +39,7 @@ router.get("/delete/:noteId", isAuthenticated, function (req, res, next) {
       res.status(200).json(note);
     })
     .catch((err) => {
-      res.status(500);
+      res.status(500).json({})
       console.log("Error in create note", err);
     });
 });
@@ -53,7 +55,7 @@ router.post("/:noteId", isAuthenticated, function (req, res, next) {
       res.status(200).json(note);
     })
     .catch((err) => {
-      res.status(500);
+      res.status(500).json({})
       console.log("Error in update note", err);
     });
 });
